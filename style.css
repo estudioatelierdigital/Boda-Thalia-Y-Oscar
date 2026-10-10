@@ -1,0 +1,690 @@
+/* =========================================
+   VARIABLES DE COLOR Y FUENTES
+   Paleta: Beige, Azul Oxford y Dorado
+========================================= */
+:root {
+  /* Colores */
+  --bg-color: #002147;        /* Fondo principal Beige elegante */
+  --oxford-blue: #002147;     /* Azul Oxford */
+  --gold: #D4AF37;            /* Dorado elegante */
+  --gold-light: #B8860B;      /* Dorado oscuro para que resalte en el beige */
+  --white: #FFFFFF;
+  --text-main: #002147;       /* Texto Azul Oxford para el fondo claro */
+  
+  /* Fuentes */
+  --font-titles: 'Cormorant Garamond', serif;
+  --font-text: 'Montserrat', sans-serif;
+}
+
+/* =========================================
+   RESET Y ESTILOS BASE
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-text);
+  background-color: var(--bg-color); /* Fondo Beige */
+  color: var(--text-main);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-titles);
+  font-weight: 700;
+  background: linear-gradient(
+    to bottom, 
+    #9B6A15 0%,
+    #D4AF37 30%,
+    #8B5A19 50%,
+    #D4AF37 70%,
+    #5C3A05 100%
+  );
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; 
+  filter: drop-shadow(2px 3px 2px rgba(0, 33, 71, 0.75));
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================
+   SISTEMA GLASSMORPHISM (Efecto cristal)
+========================================= */
+.glass {
+  background: rgba(0, 33, 71, 0.85); /* Azul Oxford con un poco de transparencia */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  color: var(--white); /* Texto blanco para que resalte dentro de la tarjeta azul */
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+.btn-primary {
+  display: inline-block;
+  
+  /* Degradado metálico para el fondo del botón */
+  background: linear-gradient(
+    to bottom,
+    #B38728 0%,
+    #FDF5A9 25%,
+    #D4AF37 45%,
+    #8A5A19 50%,
+    #FDF5A9 65%,
+    #B38728 100%
+  );
+  
+  color: var(--oxford-blue); 
+  padding: 12px 30px;
+  font-family: var(--font-text);
+  font-weight: 700; 
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 1px solid #FDF5A9; 
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+}
+
+.btn-primary:hover {
+  filter: brightness(1.15);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--gold);
+  padding: 10px 25px;
+  font-family: var(--font-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  border: 1px solid var(--gold);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--gold);
+  color: var(--navy-blue);
+}
+
+/* =========================================
+   PANTALLA DE INTRODUCCIÓN (SOBRE)
+========================================= */
+.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--bg-color) 0%, var(--oxford-blue) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.intro.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro-content {
+  text-align: center;
+  padding: 40px;
+  max-width: 90%;
+  width: 400px;
+}
+
+.intro-tag {
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  color: var(--gold-light);
+  margin-bottom: 15px;
+}
+
+.intro h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.intro-divider {
+  width: 50px;
+  height: 2px;
+  background-color: var(--gold);
+  margin: 0 auto 20px auto;
+}
+
+.intro-date {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: var(--gold-light);
+}
+
+/* =========================================
+   REPRODUCTOR DE MÚSICA
+========================================= */
+.music-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.music-button:hover {
+  background: rgba(212, 175, 55, 0.2);
+}
+
+/* =========================================
+   PORTADA (HERO)
+========================================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 33, 71, 0.4), rgba(0, 33, 71, 0.9));
+  z-index: -1;
+}
+
+.hero-content {
+  padding: 20px;
+  z-index: 1;
+}
+
+.hero-subtitle {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  font-weight: 600; 
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #FFFFFF; 
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9); 
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  line-height: 1;
+  margin-bottom: 20px;
+  font-weight: 700;
+  
+  background: linear-gradient(
+    to bottom,
+    #B38728 0%,
+    #FDF5A9 25%,
+    #D4AF37 45%,
+    #8A5A19 50%,
+    #FDF5A9 65%,
+    #B38728 100%
+  );
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; 
+  
+  filter: drop-shadow(3px 4px 5px rgba(0, 0, 0, 0.9));
+}
+
+.hero-ornament {
+  width: 80px;
+  height: 2px;
+  background-color: var(--gold);
+  margin: 25px auto;
+}
+
+/* CONTADOR REGRESIVO */
+.countdown {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding: 15px 25px;
+  margin-top: 20px;
+}
+
+.count-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.count-item span {
+  font-family: var(--font-titles);
+  font-size: 2.5rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.count-item small {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  margin-top: 5px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--gold-light);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* =========================================
+   SECCIONES GENERALES
+========================================= */
+.section {
+  padding: 80px 20px;
+  position: relative;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title p {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-title h2 {
+  font-size: 2.8rem;
+}
+
+/* Tarjetas de Detalle */
+.detail-card {
+  padding: 40px 30px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   FRASE
+========================================= */
+.phrase-card {
+  max-width: 700px;
+}
+
+.quote-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.main-phrase {
+  font-family: var(--font-titles);
+  font-size: 1.8rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--white);
+}
+
+/* =========================================
+   PADRES Y PADRINOS
+========================================= */
+.family-card {
+  max-width: 800px;
+}
+
+.family-intro {
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.parents-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.parents-title {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.parents-group p, .godparents-group p {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--white);
+}
+
+.godparents-group {
+  margin-bottom: 30px;
+}
+
+.special-note {
+  font-size: 1rem;
+  color: var(--white);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* =========================================
+   IMÁGENES INTERCALADAS (SEPARADORES)
+========================================= */
+.image-break {
+  padding: 40px 20px;
+}
+
+.img-container {
+  padding: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  transform: rotate(-2deg);
+  transition: transform 0.4s ease;
+}
+
+.img-container:hover {
+  transform: rotate(0deg);
+}
+
+.distributed-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+/* =========================================
+   UBICACIONES (CEREMONIA Y RECEPCIÓN)
+========================================= */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.detail-card i {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.detail-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.detail-card .time {
+  font-family: var(--font-titles);
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+.detail-card p {
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+.map-btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* =========================================
+   CÓDIGO DE VESTIMENTA
+========================================= */
+.dress-card {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.dress-icon {
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.dress-code-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* =========================================
+   RSVP (ASISTENCIA)
+========================================= */
+.rsvp-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px 30px;
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366 !important; /* Forzamos el fondo verde, quitando el metal */
+  color: white !important; /* Letras blancas */
+  margin: 0 auto;
+  max-width: 300px;
+  border: none; /* Quitamos el borde brillante del metal */
+  box-shadow: none; /* Quitamos la sombra 3D */
+}
+
+.whatsapp-btn:hover {
+  background: #1EBE5D !important; /* Verde más oscuro al pasar el mouse */
+  filter: none; /* Quitamos el brillo extra del hover metálico */
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-btn i {
+  font-size: 1.2rem;
+}
+
+/* =========================================
+   FOOTER (ATELIER DIGITAL)
+========================================= */
+.brand-section {
+  text-align: center;
+  padding: 40px 20px 60px;
+  background-color: #F5F1E7;
+}
+
+.brand-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin-bottom: 40px;
+}
+
+.brand-logo {
+  width: 60px;
+  height: auto;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.brand-created {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 5px;
+}
+
+.brand-name {
+  font-family: var(--font-text);
+  font-size: 1.2rem;
+  letter-spacing: 5px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.brand-text {
+  font-size: 0.8rem;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.brand-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.brand-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: var(--gold);
+  transition: all 0.3s ease;
+}
+
+.brand-social a:hover {
+  background-color: var(--gold);
+  color: var(--navy-blue);
+}
+
+/* =========================================
+   ANIMACIONES SCROLL (REVEAL)
+========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   MEDIA QUERIES (RESPONSIVE)
+========================================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+  
+  .intro h1 {
+    font-size: 2.5rem;
+  }
+  
+  .countdown {
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .count-item span {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 60px 15px;
+  }
+  
+  .details-grid, .parents-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .section-title h2 {
+    font-size: 2.2rem;
+  }
+  
+  .main-phrase {
+    font-size: 1.5rem;
+  }
+}

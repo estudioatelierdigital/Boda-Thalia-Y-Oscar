@@ -1,0 +1,284 @@
+<!--
+  NOTA SOBRE EDICIÓN (index.html):
+  Este es el esqueleto de tu invitación.
+  Aquí puedes editar fácilmente:
+  - Las rutas de las imágenes intercaladas (assets/img/foto1.jpg, foto2.jpg, etc.).
+  - Las rutas de la música (assets/audio/music.mp3).
+  - La frase principal (puedes cambiar el texto directamente aquí).
+  
+  Recuerda que los nombres, fechas y ubicaciones se inyectan automáticamente desde config.js.
+  El diseño visual (colores azul marino y dorado) se aplicará con el siguiente archivo (styles.css).
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thalía & Oscar | Invitación de Boda</title>
+
+  <!-- Google Fonts: Cormorant Garamond (Elegante/Clásica) y Montserrat (Moderna/Legible) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== -->
+  <!-- INTRODUCCIÓN -->
+  <!-- ===================== -->
+  <div class="intro" id="intro">
+    <div class="intro-overlay"></div>
+    <div class="intro-content glass">
+      <p class="intro-tag">NUESTRA BODA</p>
+      <h1 id="coupleIntro">Novios</h1>
+      <div class="intro-divider"></div>
+      <p class="intro-date" id="introDate">Fecha</p>
+      <button class="btn-primary" id="openInvitation">Abrir invitación</button>
+    </div>
+  </div>
+
+  <!-- ===================== -->
+  <!-- REPRODUCTOR DE MÚSICA -->
+  <!-- ===================== -->
+  <button class="music-button glass" id="musicButton">
+    <i class="fa-solid fa-volume-high"></i>
+  </button>
+
+  <audio id="backgroundMusic" loop>
+    <!-- Ruta de la canción "Marry You - Bruno Mars" -->
+    <source src="assets/audio/music.mp3" type="audio/mp3" />
+  </audio>
+
+  <!-- ===================== -->
+  <!-- HERO / PORTADA -->
+  <!-- ===================== -->
+  <header class="hero">
+    <img class="hero-image" id="heroImage" src="assets/img/e33b751c-df5f-40ce-a09f-727c60828e28.jpeg" alt="Dulce Thalia y Oscar" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-subtitle">CELEBRA CON NOSOTROS</p>
+      <h1 id="coupleNames">Novios</h1>
+      <div class="hero-ornament"></div>
+      <p class="hero-subtitle">Faltan:</p>
+      
+      <!-- CONTADOR REGRESIVO -->
+      <div class="countdown glass">
+        <div class="count-item">
+          <span id="days">00</span>
+          <small>Días</small>
+        </div>
+        <div class="count-item">
+          <span id="hours">00</span>
+          <small>Hrs</small>
+        </div>
+        <div class="count-item">
+          <span id="minutes">00</span>
+          <small>Min</small>
+        </div>
+        <div class="count-item">
+          <span id="seconds">00</span>
+          <small>Seg</small>
+        </div>
+      </div>
+    </div>
+    <!-- INDICADOR DE SCROLL -->
+    <div class="scroll-indicator">
+      <span>Desliza</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </header>
+
+  <!-- FOTO 1 (Separador) -->
+<!--   <section class="section image-break reveal">
+    <div class="container text-center">
+      <div class="img-container glass">
+        <img src="assets/img/e33b751c-df5f-40ce-a09f-727c60828e28.jpeg" alt="Dulce Thalia y Oscar" class="distributed-img" />
+      </div>
+    </div>
+  </section> -->
+
+  <!-- ===================== -->
+  <!-- FRASE -->
+  <!-- ===================== -->
+  <section class="section reveal">
+    <div class="container text-center">
+      <div class="glass detail-card phrase-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p class="main-phrase">
+            "Dios juntó nuestras manos y nos enseñó el camino, nosotros uniremos nuestras vidas y la recorreremos con amor y fe."
+        </p>
+        <div class="hero-ornament"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- PADRES Y PADRINOS -->
+  <!-- ===================== -->
+  <section class="section reveal">
+    <div class="container text-center">
+      <div class="glass detail-card family-card">
+        <p class="family-intro">Con la bendición de nuestros padres</p>
+        
+        <div class="parents-grid">
+          <div class="parents-group">
+            <h3 class="parents-title">Padres de la Novia</h3>
+            <p id="momBride"></p>
+            <p id="dadBride"></p>
+          </div>
+          <div class="parents-group">
+            <h3 class="parents-title">Padres del Novio</h3>
+            <p id="momGroom"></p>
+            <p id="dadGroom"></p>
+          </div>
+        </div>
+
+        <div class="godparents-group">
+          <h3 class="parents-title">Y nuestros padrinos</h3>
+          <p>Graciela Garcia Vargas</p>
+          <p>Marco Antonio Caporal Vidal</p>
+        </div>
+
+        <div class="hero-ornament"></div>
+        <p id="specialNote" class="special-note"></p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOTO 2 (Separador) -->
+  <section class="section image-break reveal">
+    <div class="container text-center">
+      <div class="img-container glass">
+        <img src="assets/img/0bcdcaf6-2ae8-4a66-a439-994b1873c64d.jpeg" alt="Dulce Thalia y Oscar" class="distributed-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- UBICACIONES Y HORARIOS (CUÁNDO Y DÓNDE) -->
+  <!-- ===================== -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-title">
+        <p>DÓNDE Y CUÁNDO</p>
+        <h2>Ceremonia y Recepción</h2>
+      </div>
+
+      <div class="details-grid">
+        <!-- Ceremonia -->
+        <div class="glass detail-card">
+          <i class="fa-solid fa-church"></i>
+          <h3>Ceremonia Religiosa</h3>
+          <p class="time" id="ceremonyTime"></p>
+          <p id="ceremonyPlace"></p>
+          <a id="ceremonyMapBtn" class="btn-secondary map-btn" target="_blank">CÓMO LLEGAR</a>
+        </div>
+
+        <!-- Recepción -->
+        <div class="glass detail-card">
+          <i class="fa-solid fa-champagne-glasses"></i>
+          <h3>Recepción</h3>
+          <p class="time" id="receptionTime"></p>
+          <p id="receptionPlace"></p>
+          <a id="receptionMapBtn" class="btn-secondary map-btn" target="_blank">CÓMO LLEGAR</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOTO 3 (Separador) -->
+  <section class="section image-break reveal">
+    <div class="container text-center">
+      <div class="img-container glass">
+        <img src="assets/img/c0469fbb-265d-4627-89bb-e102937b7676.jpeg " alt="Dulce Thalia y Oscar" class="distributed-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- DRESS CODE -->
+  <!-- ===================== -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-title">
+        <p>CÓDIGO DE VESTIMENTA</p>
+        <h2>Dress Code</h2>
+      </div>
+      <div class="glass card dress-card">
+        <i class="fa-solid fa-user-tie dress-icon"></i>
+        <h3 id="dressCodeText" class="dress-code-title"></h3>
+        <p>Reserva el color blanco exclusivamente para la novia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOTO 4 (Separador final) -->
+  <section class="section image-break reveal">
+    <div class="container text-center">
+      <div class="img-container glass">
+        <img src="assets/img/f79bd710-ca49-4cdb-8731-654e5826f041.jpeg" alt="Dulce Thalia y Oscar" class="distributed-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- RSVP / ASISTENCIA -->
+  <!-- ===================== -->
+  <section class="section reveal" style="margin-bottom: 40px;">
+    <div class="container text-center">
+      <div class="section-title">
+        <p>ASISTENCIA</p>
+        <h2>Acompáñanos en este día</h2>
+      </div>
+      <div class="glass card rsvp-card">
+        <p style="margin-bottom: 20px;">
+          Tu presencia es muy importante para nosotros. Por favor, confirma tu asistencia comunicándote al número o dando clic en el botón de WhatsApp.
+        </p>
+        <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--accent);">
+          <strong>563 476 0972</strong>
+        </p>
+        
+        <div class="actions">
+          <a id="whatsappButton" class="btn-primary whatsapp-btn" target="_blank">
+             <i class="fa-brands fa-whatsapp"></i> Confirmar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- FOOTER MARCA -->
+  <!-- ===================== -->
+  <footer class="brand-section">
+    <div class="brand-divider"></div>
+    <img src="assets/img/logo.png" alt="Logo Atelier Digital" class="brand-logo">
+    <p class="brand-created">Invitaciones Digitales</p>
+    <h3 class="brand-name">ATELIER DIGITAL</h3>
+    <p class="brand-text">2027. Todos los derechos reservados</p>
+    <div class="brand-social">
+      <a href="https://www.instagram.com/atelier.digitalmx?igsh=M2k4cjhkeDNyZDQ3" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Atelier Digital">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/share/1HRgm8RcM1/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Atelier Digital">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+    </div>
+  </footer>
+
+</body>
+
+
+  <!-- ===================== -->
+  <!-- SCRIPTS -->
+  <!-- ===================== -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</html>
